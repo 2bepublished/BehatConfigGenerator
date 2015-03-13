@@ -1,0 +1,8 @@
+{{ module.name }}:
+            paths:
+    {% for path in module.paths %}
+            - %paths.base%/{{ module.name }}/{{ path }}.feature
+    {% endfor %}
+
+            contexts:
+                - FeatureContext

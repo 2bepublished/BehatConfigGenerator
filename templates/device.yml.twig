@@ -1,0 +1,25 @@
+
+{{ device.name }}:
+    suites:
+{% for module in device.modules %}
+        {% include "module.yml.twig" %}
+{% endfor %}
+
+    extensions:
+        Behat\MinkExtension\ServiceContainer\MinkExtension::
+            base_url: http://example.com
+            selenium2: ~
+
+            sessions:
+                {{ device.minkSession.name }}:
+                    username: {{ device.minkSession.username }}
+                    access_key: {{ device.minkSession.password }}
+                    browser_stack:
+                        browser: {{ device.minkSession.browser }}
+                        capabilities:
+                            device: "{{ device.minkSession.device }}"
+                            os: "{{ device.minkSession.os }}"
+                            browserName: "{{ device.minkSession.browser }}"
+                            version: "{{ device.minkSession.version }}"
+                            browserstack-debug: {{ device.minkSession.debug ? 'true' : 'false' }}
+                            browserstack-tunnel: {{ device.minkSession.tunnel ? 'true' : 'false' }}
