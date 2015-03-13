@@ -20,13 +20,13 @@ class DeviceDataWriterSpec extends ObjectBehavior
         $inputs = [
             [
                 'feature' => 'show',
-                'firefox' => true,
-                'iphone'  => true
+                'firefox' => 'true',
+                'iphone'  => 'true'
             ],
             [
                 'feature' => 'search',
-                'firefox' => true,
-                'iphone'  => false
+                'firefox' => 'true',
+                'iphone'  => 'false'
             ]
         ];
 

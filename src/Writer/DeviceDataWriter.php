@@ -30,7 +30,7 @@ class DeviceDataWriter implements WriterInterface
         unset($item['feature']);
 
         foreach ($item as $device => $active) {
-            if (!$active) {
+            if ($active === 'false') {
                 return;
             }
 

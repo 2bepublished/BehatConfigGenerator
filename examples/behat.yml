@@ -1,0 +1,69 @@
+
+firefox:
+    suites:
+        order:
+            paths:
+                - %paths.base%/order/search.feature
+                - %paths.base%/order/show.feature
+    
+            contexts:
+                - FeatureContext
+        cart:
+            paths:
+                - %paths.base%/cart/search.feature
+                - %paths.base%/cart/show.feature
+    
+            contexts:
+                - FeatureContext
+
+    extensions:
+        Behat\MinkExtension\ServiceContainer\MinkExtension::
+            base_url: http://example.com
+            selenium2: ~
+
+            sessions:
+                firefox_35_win:
+                    username: my-username
+                    access_key: my-password
+                    browser_stack:
+                        browser: firefox
+                        capabilities:
+                            device: "ANY"
+                            os: "WINDOWS"
+                            browserName: "firefox"
+                            version: "35"
+                            browserstack-debug: false
+                            browserstack-tunnel: false
+iphone:
+    suites:
+        order:
+            paths:
+                - %paths.base%/order/search.feature
+    
+            contexts:
+                - FeatureContext
+        cart:
+            paths:
+                - %paths.base%/cart/search.feature
+    
+            contexts:
+                - FeatureContext
+
+    extensions:
+        Behat\MinkExtension\ServiceContainer\MinkExtension::
+            base_url: http://example.com
+            selenium2: ~
+
+            sessions:
+                iphone_5_ios7:
+                    username: my-username
+                    access_key: my-password
+                    browser_stack:
+                        browser: iPhone
+                        capabilities:
+                            device: "iPhone 5S"
+                            os: "ios"
+                            browserName: "iPhone"
+                            version: ""
+                            browserstack-debug: false
+                            browserstack-tunnel: false
