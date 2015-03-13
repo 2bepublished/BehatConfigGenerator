@@ -59,14 +59,18 @@ show,true,false
 ```
 
 **Step 3: Generate the `behat.yml` by using the following command:**
-`php vendor/bin/behat-config-generator pub:generate-behat-config ./data/devices.csv ./data/feature_list/ ./behat.yml`
+```
+php vendor/bin/behat-config-generator pub:generate-behat-config ./data/devices.csv ./data/feature_list/ ./behat.yml
+```
 
 
 Customize the templates
 -----------------------
 To customize the generated behat.yml you can easily change the templates that are used.
 Create a folder containing a `device.yml.twig` and a `module.yml.twig` and pass the folder via. a command option like so:
-`php vendor/bin/behat-config-generator pub:generate-behat-config --template-path="/my/templates/" ...`
+```
+php vendor/bin/behat-config-generator pub:generate-behat-config --template-path="/my/templates/" ...
+```
 
 Features
 --------
