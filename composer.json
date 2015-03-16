@@ -29,6 +29,6 @@
     "symfony/console": "~2.5@stable",
     "symfony/finder": "~2.5@stable",
     "symfony/filesystem": "~2.5@stable",
-    "twig/twig": "~2.0"
+    "twig/twig": "~2.0@stable"
   }
 }
