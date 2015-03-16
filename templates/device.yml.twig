@@ -12,9 +12,9 @@
 
             sessions:
                 {{ device.minkSession.name }}:
-                    username: {{ device.minkSession.username }}
-                    access_key: {{ device.minkSession.password }}
                     browser_stack:
+                        username: {{ device.minkSession.username }}
+                        access_key: {{ device.minkSession.password }}                    
                         browser: {{ device.minkSession.browser }}
                         capabilities:
                             device: "{{ device.minkSession.device }}"
