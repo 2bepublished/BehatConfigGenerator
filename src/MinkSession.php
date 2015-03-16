@@ -52,6 +52,11 @@ class MinkSession
         return $this->get('browserstack_os');
     }
 
+    public function getOsVersion()
+    {
+        return $this->get('browserstack_os_version');
+    }
+
     public function getBrowser()
     {
         return $this->get('browserstack_browser');
