@@ -40,4 +40,29 @@ class DeviceConfigConverterSpec extends ObjectBehavior
 
         $this->convert($input)->shouldBeLike($expectedDevice);
     }
+
+    function it_converts_a_item_with_no_version()
+    {
+        $this->beConstructedWith(new DeviceFactory());
+        $input = [
+            "firefox","firefox_35_win","ANY","my-username","my-password","WINDOWS","firefox"
+        ];
+
+        $expectedDevice = new Device('firefox', []);
+        $expectedDevice->setMinkSession(
+            new MinkSession(
+                'firefox_35_win', [
+                'mink_name'             => 'firefox_35_win',
+                'browserstack_device'   => 'ANY',
+                'browserstack_username' => 'my-username',
+                'browserstack_password' => 'my-password',
+                'browserstack_os'       => 'WINDOWS',
+                'browserstack_browser'  => 'firefox',
+                'browserstack_version'  => '',
+            ]
+            )
+        );
+
+        $this->convert($input)->shouldBeLike($expectedDevice);
+    }
 }

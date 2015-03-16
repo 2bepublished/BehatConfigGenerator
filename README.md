@@ -60,7 +60,7 @@ show,true,false
 
 **Step 3: Generate the `behat.yml` by using the following command:**
 ```
-php vendor/bin/behat-config-generator pub:generate-behat-config ./data/devices.csv ./data/feature_list/ ./behat.yml
+php vendor/bin/behat-config-generator pub:generate-behat-config ./data/devices.csv ./data/feature_list/ ./output-directory/
 ```
 
 

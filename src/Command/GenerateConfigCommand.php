@@ -4,6 +4,7 @@ namespace Pub\BehatConfigGenerator\Command;
 use Plum\Plum\Converter\HeaderConverter;
 use Plum\Plum\Filter\SkipFirstFilter;
 use Plum\Plum\Reader\ArrayReader;
+use Pub\BehatConfigGenerator\Writer\BehatRunnerWriter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -65,11 +66,8 @@ class GenerateConfigCommand extends Command
 
         // Merge Modules + Devices
         // write out config into .yml
-        $config = $this->generateConfig($twig, $devices, $moduleData);
+        $this->generateConfig($twig, $devices, $moduleData, $input->getArgument('output-path'));
 
-        // write out config
-        $filesystem = new Filesystem();
-        $filesystem->dumpFile($input->getArgument('output-path'), $config);
     }
 
     protected function info($string)
@@ -147,8 +145,11 @@ class GenerateConfigCommand extends Command
      *
      * @return BehatConfigWriter
      */
-    protected function generateConfig($twig, $devices, $moduleData)
+    protected function generateConfig($twig, $devices, $moduleData, $outputDir)
     {
+        $configPath = $this->input->getArgument('output-path').'/behat.yml';
+        $runnerPath = $this->input->getArgument('output-path').'/behat-runner.sh';
+
         $configWriter = new BehatConfigWriter($twig);
         $workflow     = new Workflow();
         $workflow->addConverter(new DeviceDataConverter($devices, new DeviceFactory()));
@@ -163,9 +164,15 @@ class GenerateConfigCommand extends Command
                 }
             )
         );
+
+        $runnerWriter = new BehatRunnerWriter(new Filesystem(), $runnerPath, $configPath);
+
         $workflow->addWriter($configWriter);
+        $workflow->addWriter($runnerWriter);
         $workflow->process(new ArrayReader($moduleData));
 
-        return $configWriter->getOutput();
+        // write out config
+        $filesystem = new Filesystem();
+        $filesystem->dumpFile($configPath, $configWriter->getOutput());
     }
 }
