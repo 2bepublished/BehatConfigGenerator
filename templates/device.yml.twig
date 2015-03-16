@@ -19,6 +19,7 @@
                         capabilities:
                             device: "{{ device.minkSession.device }}"
                             os: "{{ device.minkSession.os }}"
+                            os_version: "{{ device.minkSession.osVersion }}"
                             browserName: "{{ device.minkSession.browser }}"
                             version: "{{ device.minkSession.version }}"
                             browserstack-debug: {{ device.minkSession.debug ? 'true' : 'false' }}
