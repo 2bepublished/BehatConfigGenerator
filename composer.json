@@ -21,7 +21,7 @@
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
-  "bin": ["bin/phpspec"],
+  "bin": ["bin/behat-config-generator"],
   "require": {
     "plumphp/plum": "dev-master",
     "plumphp/plum-console": "dev-master",
