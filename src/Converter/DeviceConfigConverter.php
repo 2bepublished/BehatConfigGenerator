@@ -25,7 +25,8 @@ class DeviceConfigConverter implements  ConverterInterface
                 'browserstack_password' => $item[4],
                 'browserstack_os' => $item[5],
                 'browserstack_browser' => $item[6],
-                'browserstack_version' => isset($item[7]) ? $item[7] : ''
+                'browserstack_version' => isset($item[7]) ? $item[7] : '',
+                'browserstack_os_version' => isset($item[8]) ? $item[8] : ''
             ]
         ];
 

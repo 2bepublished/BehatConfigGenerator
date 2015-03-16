@@ -35,10 +35,12 @@ The csv uses the following fields:
 * browserstack_user
 * browserstack_password
 * browserstack_os
+* browserstack_browser
 * browserstack_version
+* browserstack_os_version
 ```csv
-"iphone","iphone_5_ios7","iPhone 5S","my-username","my-password","ios","iPhone",""
-"firefox","firefox_35_win","ANY","my-username","my-password","WINDOWS","firefox","35"
+"iphone","iphone_5_ios7","iPhone 5S","my-username","my-password","ios","iPhone","","7"
+"firefox","firefox_35_win","ANY","my-username","my-password","WINDOWS","firefox","35",""
 ```
 
 **Step 2: Create your feature / device mappings per module.**

@@ -20,7 +20,7 @@ class DeviceConfigConverterSpec extends ObjectBehavior
     {
         $this->beConstructedWith(new DeviceFactory());
         $input = [
-            "firefox","firefox_35_win","ANY","my-username","my-password","WINDOWS","firefox","35"
+            "firefox","firefox_35_win","android","my-username","my-password","WINDOWS","firefox","35","4.4"
         ];
 
         $expectedDevice = new Device('firefox', []);
@@ -28,12 +28,13 @@ class DeviceConfigConverterSpec extends ObjectBehavior
             new MinkSession(
                 'firefox_35_win', [
                 'mink_name'             => 'firefox_35_win',
-                'browserstack_device'   => 'ANY',
+                'browserstack_device'   => 'android',
                 'browserstack_username' => 'my-username',
                 'browserstack_password' => 'my-password',
                 'browserstack_os'       => 'WINDOWS',
                 'browserstack_browser'  => 'firefox',
                 'browserstack_version'  => '35',
+                'browserstack_os_version'  => '4.4',
             ]
             )
         );
@@ -45,7 +46,7 @@ class DeviceConfigConverterSpec extends ObjectBehavior
     {
         $this->beConstructedWith(new DeviceFactory());
         $input = [
-            "firefox","firefox_35_win","ANY","my-username","my-password","WINDOWS","firefox"
+            "firefox","firefox_35_win","ANY","my-username","my-password","WINDOWS","firefox","",""
         ];
 
         $expectedDevice = new Device('firefox', []);
@@ -59,6 +60,7 @@ class DeviceConfigConverterSpec extends ObjectBehavior
                 'browserstack_os'       => 'WINDOWS',
                 'browserstack_browser'  => 'firefox',
                 'browserstack_version'  => '',
+                'browserstack_os_version'  => '',
             ]
             )
         );
