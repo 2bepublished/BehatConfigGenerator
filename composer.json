@@ -23,9 +23,9 @@
   "prefer-stable": true,
   "bin": ["bin/behat-config-generator"],
   "require": {
-    "plumphp/plum": "dev-master",
+    "plumphp/plum": "0.1",
     "plumphp/plum-console": "dev-master",
-    "plumphp/plum-csv": "dev-master",
+    "plumphp/plum-csv": "0.1",
     "symfony/console": "~2.5@stable",
     "symfony/finder": "~2.5@stable",
     "symfony/filesystem": "~2.5@stable",
